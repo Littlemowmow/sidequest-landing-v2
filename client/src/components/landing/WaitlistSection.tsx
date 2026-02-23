@@ -1,7 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useState, useEffect, useCallback } from "react";
-import { Loader2, MapPin, GraduationCap, ChevronDown } from "lucide-react";
+import { Loader2, MapPin, GraduationCap, Users } from "lucide-react";
 
 const TIMELINE_OPTIONS = [
   { value: "", label: "When are you traveling? (optional)" },
@@ -11,6 +12,27 @@ const TIMELINE_OPTIONS = [
   { value: "next_year", label: "Next year" },
   { value: "just_exploring", label: "Just exploring" },
 ];
+
+function captureAttribution() {
+  const params = new URLSearchParams(window.location.search);
+  return {
+    utm_source: params.get("utm_source") || "",
+    utm_medium: params.get("utm_medium") || "",
+    utm_campaign: params.get("utm_campaign") || "",
+    utm_content: params.get("utm_content") || "",
+    utm_term: params.get("utm_term") || "",
+    gclid: params.get("gclid") || "",
+    fbclid: params.get("fbclid") || "",
+    ttclid: params.get("ttclid") || "",
+    msclkid: params.get("msclkid") || "",
+  };
+}
+
+function pushDataLayer(event: Record<string, unknown>) {
+  (window as unknown as Record<string, unknown[]>).dataLayer =
+    ((window as unknown as Record<string, unknown[]>).dataLayer) || [];
+  ((window as unknown as Record<string, unknown[]>).dataLayer).push(event);
+}
 
 export function WaitlistSection() {
   const [email, setEmail] = useState("");
@@ -22,6 +44,7 @@ export function WaitlistSection() {
   const [errorMsg, setErrorMsg] = useState("");
   const [referredBy, setReferredBy] = useState<string | null>(null);
   const [copied, setCopied] = useState(false);
+  const [waitlistCount, setWaitlistCount] = useState<number | null>(null);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -32,6 +55,15 @@ export function WaitlistSection() {
       url.searchParams.delete("ref");
       window.history.replaceState({}, "", url.pathname + url.search);
     }
+
+    sessionStorage.setItem("sq_attribution", JSON.stringify(captureAttribution()));
+
+    fetch("/api/waitlist/count")
+      .then((r) => r.json())
+      .then((data) => {
+        if (typeof data.count === "number") setWaitlistCount(data.count);
+      })
+      .catch(() => {});
   }, []);
 
   const handleCopy = useCallback(() => {
@@ -40,6 +72,7 @@ export function WaitlistSection() {
       .then(() => {
         setCopied(true);
         setTimeout(() => setCopied(false), 2000);
+        pushDataLayer({ event: "share", method: "referral_link_copy" });
       })
       .catch(() => {});
   }, [referralCode]);
@@ -49,6 +82,8 @@ export function WaitlistSection() {
     if (!email) return;
     setStatus("loading");
     setErrorMsg("");
+
+    const attribution = JSON.parse(sessionStorage.getItem("sq_attribution") || "{}");
 
     try {
       const res = await fetch("/api/waitlist", {
@@ -61,6 +96,7 @@ export function WaitlistSection() {
           travelType: "group",
           university: university || null,
           referredBy: referredBy || null,
+          ...attribution,
         }),
       });
 
@@ -69,6 +105,7 @@ export function WaitlistSection() {
       if (res.status === 409) {
         setReferralCode(data.referralCode);
         setStatus("success");
+        pushDataLayer({ event: "generate_lead", method: "waitlist_signup", email_provided: true });
         return;
       }
 
@@ -80,6 +117,8 @@ export function WaitlistSection() {
 
       setReferralCode(data.referralCode);
       setStatus("success");
+      setWaitlistCount((c) => (c !== null ? c + 1 : c));
+      pushDataLayer({ event: "generate_lead", method: "waitlist_signup", email_provided: true });
       setEmail("");
       setDestination("");
       setTravelDate("");
@@ -102,11 +141,18 @@ export function WaitlistSection() {
 
            <div className="relative z-10">
              <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-4" data-testid="text-waitlist-title">
-               Get Early Beta Access
+               Don't let another trip die in the chat.
              </h2>
-             <p className="text-white/60 text-lg mb-8 max-w-xl mx-auto">
-               Join the waitlist — tell us a bit about your next trip to prioritize your spot.
+             <p className="text-white/60 text-lg mb-3 max-w-xl mx-auto">
+               Join the waitlist. Then send it to the group chat — you're gonna need them on here anyway.
              </p>
+
+             {waitlistCount !== null && (
+               <div className="flex items-center justify-center gap-1.5 text-white/40 text-sm font-medium mb-6" data-testid="text-waitlist-count">
+                 <Users size={14} className="text-orange-400/60" />
+                 <span>Join <span className="text-white/60 font-semibold">{waitlistCount.toLocaleString()}+</span> students already signed up</span>
+               </div>
+             )}
 
              <div aria-live="polite">
                {status === "success" ? (
@@ -143,6 +189,9 @@ export function WaitlistSection() {
                           Friends who sign up with your link move you both up the list
                         </div>
                      </div>
+                     <p className="text-white/30 text-xs mt-4 font-medium">
+                       Spring break plans are dying in group chats right now. Don't let yours be next.
+                     </p>
                   </div>
                ) : (
                   <form onSubmit={handleSubmit} aria-label="Join waitlist" className="flex flex-col gap-4 max-w-lg mx-auto bg-white/5 p-6 rounded-3xl border border-white/10 backdrop-blur-sm">
@@ -196,21 +245,22 @@ export function WaitlistSection() {
                       </div>
 
                       <div className="relative">
-                        <select
-                          value={travelDate}
-                          onChange={(e) => setTravelDate(e.target.value)}
-                          aria-label="Travel timeline"
-                          className={`h-14 w-full bg-white/10 border border-white/10 rounded-2xl px-12 text-lg cursor-pointer focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-0 appearance-none ${travelDate ? "text-white" : "text-white/40"}`}
-                          data-testid="select-travel-date"
-                        >
-                          {TIMELINE_OPTIONS.map((opt) => (
-                            <option key={opt.value} value={opt.value} className="bg-gray-900 text-white">
-                              {opt.label}
-                            </option>
-                          ))}
-                        </select>
-                        <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 text-white/40 pointer-events-none" size={18} aria-hidden="true" />
-                        <div className="absolute left-4 top-1/2 -translate-y-1/2 text-white/40 text-lg" aria-hidden="true">📅</div>
+                        <Select value={travelDate || undefined} onValueChange={setTravelDate}>
+                          <SelectTrigger
+                            className="h-14 w-full bg-white/10 border-white/10 text-white rounded-2xl pl-12 pr-4 text-base focus:ring-orange-500 data-[placeholder]:text-white/40"
+                            data-testid="select-travel-date"
+                          >
+                            <SelectValue placeholder="When are you traveling? (optional)" />
+                          </SelectTrigger>
+                          <SelectContent className="bg-gray-900 border-white/10 text-white">
+                            {TIMELINE_OPTIONS.filter(o => o.value).map((opt) => (
+                              <SelectItem key={opt.value} value={opt.value} className="text-white focus:bg-white/10 focus:text-white">
+                                {opt.label}
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
+                        <div className="absolute left-4 top-1/2 -translate-y-1/2 text-white/40 text-lg pointer-events-none" aria-hidden="true">📅</div>
                       </div>
                     </fieldset>
 
