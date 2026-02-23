@@ -97,8 +97,8 @@ export function WaitlistSection() {
       <div className="container mx-auto max-w-5xl">
         <div className="bg-gradient-to-b from-white/8 to-white/3 border border-white/10 rounded-[2rem] p-8 md:p-14 text-center relative overflow-hidden max-w-3xl mx-auto hover:border-white/15 transition-colors">
 
-           <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-orange-500/15 rounded-full blur-[120px] pointer-events-none" />
-           <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-rose-500/15 rounded-full blur-[120px] pointer-events-none" />
+           <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-orange-500/15 rounded-full blur-[120px] pointer-events-none" aria-hidden="true" />
+           <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-rose-500/15 rounded-full blur-[120px] pointer-events-none" aria-hidden="true" />
 
            <div className="relative z-10">
              <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-4" data-testid="text-waitlist-title">
