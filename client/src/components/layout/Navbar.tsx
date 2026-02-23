@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
@@ -7,6 +7,8 @@ import { Logo } from "@/components/ui/logo";
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
+  const menuToggleRef = useRef<HTMLButtonElement>(null);
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
@@ -31,10 +33,40 @@ export function Navbar() {
 
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === "Escape" && isMobileMenuOpen) setIsMobileMenuOpen(false);
+      if (e.key === "Escape" && isMobileMenuOpen) {
+        setIsMobileMenuOpen(false);
+        menuToggleRef.current?.focus();
+      }
     };
     document.addEventListener("keydown", handleEscape);
     return () => document.removeEventListener("keydown", handleEscape);
+  }, [isMobileMenuOpen]);
+
+  useEffect(() => {
+    if (!isMobileMenuOpen || !mobileMenuRef.current) return;
+    const menu = mobileMenuRef.current;
+    const getFocusable = () => menu.querySelectorAll<HTMLElement>(
+      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+    );
+    const timer = setTimeout(() => getFocusable()[0]?.focus(), 100);
+    const handleTab = (e: KeyboardEvent) => {
+      if (e.key !== "Tab") return;
+      const focusable = getFocusable();
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last?.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first?.focus();
+      }
+    };
+    document.addEventListener("keydown", handleTab);
+    return () => {
+      clearTimeout(timer);
+      document.removeEventListener("keydown", handleTab);
+    };
   }, [isMobileMenuOpen]);
 
   const scrollToSection = useCallback((id: string) => {
@@ -68,9 +100,9 @@ export function Navbar() {
       >
         <div className="container mx-auto max-w-7xl flex justify-between items-center">
           <button
-            className="cursor-pointer bg-transparent border-none p-0"
+            className="cursor-pointer bg-transparent border-none p-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sq-primary rounded-lg"
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            aria-label="Scroll to top"
+            aria-label="SideQuest — back to top"
           >
             <Logo className="text-white" />
           </button>
@@ -80,7 +112,7 @@ export function Navbar() {
               <button
                 key={link.id}
                 onClick={() => scrollToSection(link.id)}
-                className="px-4 py-2 rounded-full hover:text-white hover:bg-white/10 transition-all"
+                className="px-4 py-2 rounded-full hover:text-white hover:bg-white/10 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sq-primary focus-visible:text-white"
                 data-testid={`link-nav-${link.id}`}
               >
                 {link.label}
@@ -96,7 +128,8 @@ export function Navbar() {
           </div>
 
           <button
-            className="md:hidden p-2 text-white rounded-lg hover:bg-white/10 transition-colors"
+            ref={menuToggleRef}
+            className="md:hidden p-2 text-white rounded-lg hover:bg-white/10 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sq-primary"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
             aria-expanded={isMobileMenuOpen}
@@ -107,6 +140,7 @@ export function Navbar() {
         </div>
         
         <motion.div
+          aria-hidden="true"
           className="absolute bottom-0 left-0 right-0 h-[2px] bg-sq-primary origin-left"
           style={{ scaleX, opacity: isScrolled && !isMobileMenuOpen ? 1 : 0 }}
         />
@@ -115,6 +149,10 @@ export function Navbar() {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
+            ref={mobileMenuRef}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Mobile navigation"
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
@@ -129,7 +167,7 @@ export function Navbar() {
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ delay: i * 0.05 }}
                   onClick={() => scrollToSection(link.id)}
-                  className="text-left py-4 px-2 border-b border-white/10 flex justify-between items-center group hover:text-orange-400 transition-colors"
+                  className="text-left py-4 px-2 border-b border-white/10 flex justify-between items-center group hover:text-orange-400 transition-colors focus-visible:outline-none focus-visible:text-orange-400"
                 >
                   {link.label}
                   <span className="text-white/20 group-hover:text-orange-400 transition-colors text-sm">→</span>

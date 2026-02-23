@@ -186,7 +186,7 @@ export function ProblemSection() {
             </div>
           </motion.div>
 
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-gradient-to-tr from-orange-500/10 to-rose-500/10 rounded-full blur-[80px] -z-10 pointer-events-none" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-gradient-to-tr from-orange-500/10 to-rose-500/10 rounded-full blur-[80px] -z-10 pointer-events-none" aria-hidden="true" />
         </div>
 
         <motion.div
@@ -197,7 +197,7 @@ export function ProblemSection() {
         >
           <button
             onClick={() => document.getElementById("features")?.scrollIntoView({ behavior: "smooth" })}
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-full border-2 border-white/15 text-white font-semibold hover:bg-white hover:text-black transition-all duration-300 text-base group"
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-full border-2 border-white/15 text-white font-semibold hover:bg-white hover:text-black transition-all duration-300 text-base group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sq-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             data-testid="button-sound-familiar"
           >
             Sound familiar? There's a better way
@@ -205,7 +205,7 @@ export function ProblemSection() {
           </button>
           <Link
             href="/demo"
-            className="inline-flex items-center gap-2 text-white/50 hover:text-orange-400 transition-colors text-sm font-medium cursor-pointer group"
+            className="inline-flex items-center gap-2 text-white/50 hover:text-orange-400 transition-colors text-sm font-medium cursor-pointer group rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sq-primary"
             data-testid="link-watch-demo"
           >
               Watch full demo <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />

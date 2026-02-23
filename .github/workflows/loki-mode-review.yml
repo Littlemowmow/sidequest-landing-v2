@@ -1,0 +1,27 @@
+name: Loki Mode Code Review
+
+on:
+  pull_request:
+    types: [opened, synchronize, ready_for_review, reopened]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  loki-review:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Loki Mode Code Review
+        uses: asklokesh/loki-mode@v5.53.0
+        with:
+          mode: review
+          provider: claude
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          max_iterations: 3
+          budget_limit: '5.00'
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}

@@ -77,7 +77,7 @@ export function Hero() {
                 
                 <button 
                   onClick={() => document.getElementById("demo")?.scrollIntoView({ behavior: "smooth" })}
-                  className="flex items-center gap-3 cursor-pointer group px-4 py-2 rounded-full hover:bg-white/10 transition-colors"
+                  className="flex items-center gap-3 cursor-pointer group px-4 py-2 rounded-full hover:bg-white/10 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sq-primary"
                   aria-label="Try interactive demo"
                   data-testid="button-hero-demo"
                 >
@@ -154,7 +154,8 @@ export function Hero() {
                  </div>
               </motion.div>
 
-              <motion.div 
+              <motion.div
+                 aria-hidden="true"
                  className="absolute top-24 left-0 xl:-left-8 p-4 bg-white/10 backdrop-blur-xl rounded-2xl shadow-xl z-30 animate-float-slow border border-white/10"
                  style={{ transform: "translateZ(70px)" }}
               >
@@ -169,7 +170,8 @@ export function Hero() {
                  </div>
               </motion.div>
 
-              <motion.div 
+              <motion.div
+                 aria-hidden="true"
                  className="absolute bottom-32 right-0 xl:-right-4 p-4 bg-white/10 backdrop-blur-xl rounded-2xl shadow-xl z-30 border border-white/10"
                  style={{ transform: "translateZ(60px)", animation: "float-slow 8s ease-in-out 2s infinite" }}
               >
