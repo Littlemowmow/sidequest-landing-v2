@@ -1,0 +1,173 @@
+{
+  "total_files": 22,
+  "categories": {
+    "other": [
+      ".claude/commands/fix.md",
+      ".claude/overviews/projection.md",
+      "dev/html/README.md",
+      "dev/react/README.md",
+      "dev/react-19/README.md",
+      "packages/framer-motion/LICENSE.md",
+      "packages/framer-motion/README.md",
+      "packages/framer-motion/client/README.md",
+      "packages/framer-motion/debug/README.md",
+      "packages/framer-motion/dom/README.md",
+      "packages/motion/LICENSE.md",
+      "packages/motion/README.md",
+      "packages/motion-dom/LICENSE.md",
+      "packages/motion-utils/LICENSE.md"
+    ],
+    "templates": [
+      ".github/ISSUE_TEMPLATE/bug_report.md",
+      ".github/ISSUE_TEMPLATE/feature_request.md"
+    ],
+    "overview": [
+      "AGENTS.md",
+      "CLAUDE.md",
+      "README.md"
+    ],
+    "changelog": [
+      "CHANGELOG.md"
+    ],
+    "contributing": [
+      "CONTRIBUTING.md"
+    ],
+    "license": [
+      "LICENSE.md"
+    ]
+  },
+  "files": [
+    {
+      "path": ".claude/commands/fix.md",
+      "filename": "fix.md",
+      "category": "other",
+      "size_bytes": 689
+    },
+    {
+      "path": ".claude/overviews/projection.md",
+      "filename": "projection.md",
+      "category": "other",
+      "size_bytes": 25162
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/bug_report.md",
+      "filename": "bug_report.md",
+      "category": "templates",
+      "size_bytes": 3130
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/feature_request.md",
+      "filename": "feature_request.md",
+      "category": "templates",
+      "size_bytes": 764
+    },
+    {
+      "path": "AGENTS.md",
+      "filename": "AGENTS.md",
+      "category": "overview",
+      "size_bytes": 1270
+    },
+    {
+      "path": "CHANGELOG.md",
+      "filename": "CHANGELOG.md",
+      "category": "changelog",
+      "size_bytes": 116760
+    },
+    {
+      "path": "CLAUDE.md",
+      "filename": "CLAUDE.md",
+      "category": "overview",
+      "size_bytes": 4744
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "filename": "CONTRIBUTING.md",
+      "category": "contributing",
+      "size_bytes": 1308
+    },
+    {
+      "path": "LICENSE.md",
+      "filename": "LICENSE.md",
+      "category": "license",
+      "size_bytes": 1100
+    },
+    {
+      "path": "README.md",
+      "filename": "README.md",
+      "category": "overview",
+      "size_bytes": 6502
+    },
+    {
+      "path": "dev/html/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 294
+    },
+    {
+      "path": "dev/react/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 274
+    },
+    {
+      "path": "dev/react-19/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 274
+    },
+    {
+      "path": "packages/framer-motion/LICENSE.md",
+      "filename": "LICENSE.md",
+      "category": "other",
+      "size_bytes": 1078
+    },
+    {
+      "path": "packages/framer-motion/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 6434
+    },
+    {
+      "path": "packages/framer-motion/client/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 99
+    },
+    {
+      "path": "packages/framer-motion/debug/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 98
+    },
+    {
+      "path": "packages/framer-motion/dom/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 96
+    },
+    {
+      "path": "packages/motion/LICENSE.md",
+      "filename": "LICENSE.md",
+      "category": "other",
+      "size_bytes": 1100
+    },
+    {
+      "path": "packages/motion/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 6505
+    },
+    {
+      "path": "packages/motion-dom/LICENSE.md",
+      "filename": "LICENSE.md",
+      "category": "other",
+      "size_bytes": 1100
+    },
+    {
+      "path": "packages/motion-utils/LICENSE.md",
+      "filename": "LICENSE.md",
+      "category": "other",
+      "size_bytes": 1100
+    }
+  ]
+}

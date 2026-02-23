@@ -1,0 +1,211 @@
+{
+  "total_files": 28,
+  "categories": {
+    "other": [
+      ".github/CONTRIBUTING.md",
+      ".github/PULL_REQUEST_TEMPLATE.md",
+      "crates/ignore/README.md",
+      "crates/node/npm/android-arm-eabi/README.md",
+      "crates/node/npm/android-arm64/README.md",
+      "crates/node/npm/darwin-arm64/README.md",
+      "crates/node/npm/darwin-x64/README.md",
+      "crates/node/npm/freebsd-x64/README.md",
+      "crates/node/npm/linux-arm-gnueabihf/README.md",
+      "crates/node/npm/linux-arm64-gnu/README.md",
+      "crates/node/npm/linux-arm64-musl/README.md",
+      "crates/node/npm/linux-x64-gnu/README.md",
+      "crates/node/npm/linux-x64-musl/README.md",
+      "crates/node/npm/wasm32-wasi/README.md",
+      "crates/node/npm/win32-arm64-msvc/README.md",
+      "crates/node/npm/win32-x64-msvc/README.md",
+      "packages/@tailwindcss-browser/README.md",
+      "packages/@tailwindcss-cli/README.md",
+      "packages/@tailwindcss-node/README.md",
+      "packages/@tailwindcss-postcss/README.md",
+      "packages/@tailwindcss-upgrade/README.md",
+      "packages/@tailwindcss-vite/README.md",
+      "packages/@tailwindcss-webpack/README.md",
+      "packages/tailwindcss/README.md",
+      "playgrounds/nextjs/README.md"
+    ],
+    "templates": [
+      ".github/ISSUE_TEMPLATE/bug-report.md"
+    ],
+    "changelog": [
+      "CHANGELOG.md"
+    ],
+    "overview": [
+      "README.md"
+    ]
+  },
+  "files": [
+    {
+      "path": ".github/CONTRIBUTING.md",
+      "filename": "CONTRIBUTING.md",
+      "category": "other",
+      "size_bytes": 3530
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/bug-report.md",
+      "filename": "bug-report.md",
+      "category": "templates",
+      "size_bytes": 1660
+    },
+    {
+      "path": ".github/PULL_REQUEST_TEMPLATE.md",
+      "filename": "PULL_REQUEST_TEMPLATE.md",
+      "category": "other",
+      "size_bytes": 883
+    },
+    {
+      "path": "CHANGELOG.md",
+      "filename": "CHANGELOG.md",
+      "category": "changelog",
+      "size_bytes": 274709
+    },
+    {
+      "path": "README.md",
+      "filename": "README.md",
+      "category": "overview",
+      "size_bytes": 1838
+    },
+    {
+      "path": "crates/ignore/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 1653
+    },
+    {
+      "path": "crates/node/npm/android-arm-eabi/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 114
+    },
+    {
+      "path": "crates/node/npm/android-arm64/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 108
+    },
+    {
+      "path": "crates/node/npm/darwin-arm64/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 106
+    },
+    {
+      "path": "crates/node/npm/darwin-x64/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 103
+    },
+    {
+      "path": "crates/node/npm/freebsd-x64/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 107
+    },
+    {
+      "path": "crates/node/npm/linux-arm-gnueabihf/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 122
+    },
+    {
+      "path": "crates/node/npm/linux-arm64-gnu/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 114
+    },
+    {
+      "path": "crates/node/npm/linux-arm64-musl/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 116
+    },
+    {
+      "path": "crates/node/npm/linux-x64-gnu/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 111
+    },
+    {
+      "path": "crates/node/npm/linux-x64-musl/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 113
+    },
+    {
+      "path": "crates/node/npm/wasm32-wasi/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 106
+    },
+    {
+      "path": "crates/node/npm/win32-arm64-msvc/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 111
+    },
+    {
+      "path": "crates/node/npm/win32-x64-msvc/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 110
+    },
+    {
+      "path": "packages/@tailwindcss-browser/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 1838
+    },
+    {
+      "path": "packages/@tailwindcss-cli/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 1838
+    },
+    {
+      "path": "packages/@tailwindcss-node/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 1838
+    },
+    {
+      "path": "packages/@tailwindcss-postcss/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 3978
+    },
+    {
+      "path": "packages/@tailwindcss-upgrade/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 1838
+    },
+    {
+      "path": "packages/@tailwindcss-vite/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 2800
+    },
+    {
+      "path": "packages/@tailwindcss-webpack/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 2850
+    },
+    {
+      "path": "packages/tailwindcss/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 1838
+    },
+    {
+      "path": "playgrounds/nextjs/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 1383
+    }
+  ]
+}

@@ -1,0 +1,189 @@
+{
+  "total_files": 24,
+  "categories": {
+    "other": [
+      ".changeset/README.md",
+      "apps/v4/README.md",
+      "deprecated/cli/CHANGELOG.md",
+      "deprecated/cli/README.md",
+      "deprecated/www/README.md",
+      "deprecated/www/__registry__/README.md",
+      "packages/shadcn/CHANGELOG.md",
+      "packages/shadcn/README.md",
+      "packages/shadcn/test/fixtures/frameworks/remix-indie-stack/.github/PULL_REQUEST_TEMPLATE.md",
+      "packages/shadcn/test/fixtures/frameworks/remix-indie-stack/LICENSE.md",
+      "packages/shadcn/test/fixtures/frameworks/remix-indie-stack/README.md",
+      "packages/shadcn/test/fixtures/frameworks/remix-indie-stack/mocks/README.md",
+      "packages/shadcn/test/fixtures/vite-with-tailwind/README.md",
+      "packages/tests/README.md"
+    ],
+    "contributing": [
+      "CONTRIBUTING.md"
+    ],
+    "license": [
+      "LICENSE.md"
+    ],
+    "overview": [
+      "README.md"
+    ],
+    "security": [
+      "SECURITY.md"
+    ],
+    "examples": [
+      "apps/v4/examples/README.md"
+    ],
+    "templates": [
+      "templates/monorepo-next/README.md",
+      "templates/monorepo-next/packages/eslint-config/README.md",
+      "templates/monorepo-next/packages/typescript-config/README.md",
+      "templates/start-app/README.md",
+      "templates/vite-app/README.md"
+    ]
+  },
+  "files": [
+    {
+      "path": ".changeset/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 510
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "filename": "CONTRIBUTING.md",
+      "category": "contributing",
+      "size_bytes": 5655
+    },
+    {
+      "path": "LICENSE.md",
+      "filename": "LICENSE.md",
+      "category": "license",
+      "size_bytes": 1063
+    },
+    {
+      "path": "README.md",
+      "filename": "README.md",
+      "category": "overview",
+      "size_bytes": 467
+    },
+    {
+      "path": "SECURITY.md",
+      "filename": "SECURITY.md",
+      "category": "security",
+      "size_bytes": 538
+    },
+    {
+      "path": "apps/v4/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 100
+    },
+    {
+      "path": "apps/v4/examples/README.md",
+      "filename": "README.md",
+      "category": "examples",
+      "size_bytes": 1606
+    },
+    {
+      "path": "deprecated/cli/CHANGELOG.md",
+      "filename": "CHANGELOG.md",
+      "category": "other",
+      "size_bytes": 9492
+    },
+    {
+      "path": "deprecated/cli/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 405
+    },
+    {
+      "path": "deprecated/www/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 224
+    },
+    {
+      "path": "deprecated/www/__registry__/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 121
+    },
+    {
+      "path": "packages/shadcn/CHANGELOG.md",
+      "filename": "CHANGELOG.md",
+      "category": "other",
+      "size_bytes": 43516
+    },
+    {
+      "path": "packages/shadcn/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 1032
+    },
+    {
+      "path": "packages/shadcn/test/fixtures/frameworks/remix-indie-stack/.github/PULL_REQUEST_TEMPLATE.md",
+      "filename": "PULL_REQUEST_TEMPLATE.md",
+      "category": "other",
+      "size_bytes": 545
+    },
+    {
+      "path": "packages/shadcn/test/fixtures/frameworks/remix-indie-stack/LICENSE.md",
+      "filename": "LICENSE.md",
+      "category": "other",
+      "size_bytes": 1113
+    },
+    {
+      "path": "packages/shadcn/test/fixtures/frameworks/remix-indie-stack/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 7985
+    },
+    {
+      "path": "packages/shadcn/test/fixtures/frameworks/remix-indie-stack/mocks/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 363
+    },
+    {
+      "path": "packages/shadcn/test/fixtures/vite-with-tailwind/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 1300
+    },
+    {
+      "path": "packages/tests/README.md",
+      "filename": "README.md",
+      "category": "other",
+      "size_bytes": 842
+    },
+    {
+      "path": "templates/monorepo-next/README.md",
+      "filename": "README.md",
+      "category": "templates",
+      "size_bytes": 674
+    },
+    {
+      "path": "templates/monorepo-next/packages/eslint-config/README.md",
+      "filename": "README.md",
+      "category": "templates",
+      "size_bytes": 77
+    },
+    {
+      "path": "templates/monorepo-next/packages/typescript-config/README.md",
+      "filename": "README.md",
+      "category": "templates",
+      "size_bytes": 85
+    },
+    {
+      "path": "templates/start-app/README.md",
+      "filename": "README.md",
+      "category": "templates",
+      "size_bytes": 121
+    },
+    {
+      "path": "templates/vite-app/README.md",
+      "filename": "README.md",
+      "category": "templates",
+      "size_bytes": 122
+    }
+  ]
+}
